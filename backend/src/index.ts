@@ -38,9 +38,16 @@ app.use((req, res, next) => {
 app.use("/auth", authRoutes);
 app.use("/tasks", taskRoutes);
 
-// Health check
+// Public health check routes
+app.get("/", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    service: "task-manager-backend",
+  });
+});
+
 app.get("/health", (req, res) => {
-  res.status(200).json({ status: "ok" });
+  res.status(200).json({ status: "healthy" });
 });
 
 // 404 handler
