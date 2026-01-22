@@ -13,7 +13,11 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: env.FRONTEND_URL,
+    origin: [
+      "http://localhost:3001",
+      "https://task-manager-seven-silk.vercel.app",
+      env.FRONTEND_URL,
+    ].filter(Boolean),
     credentials: true,
   })
 );
