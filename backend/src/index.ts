@@ -40,7 +40,7 @@ app.use("/tasks", taskRoutes);
 
 // Health check
 app.get("/health", (req, res) => {
-  res.status(200).json({ status: "OK" });
+  res.status(200).json({ status: "ok" });
 });
 
 // 404 handler
